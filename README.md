@@ -1,10 +1,5 @@
 # Sinatra To Rails Pick 1 Of 3
 
-## Learning Competencies
-- Identify the differences between Sinatra and Rails.
-- Implement a solved problem (something that you've solved/done before) in different frameworks.
-- Familiarity with Rails moving parts and the 'Rails way'.
-
 ## Summary
 
  Pick one of the following three Sinatra-based challenges and build it in Rails:
