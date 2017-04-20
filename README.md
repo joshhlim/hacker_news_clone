@@ -1,28 +1,23 @@
-# Sinatra To Rails Pick 1 Of 3
+# Sinatra To Rails (Choose One)
 
 ## Summary
 
- Pick one of the following three Sinatra-based challenges and build it in Rails:
+ Pick one of the following Sinatra-based challenges and build it in Rails:
 
 1. [Web Flashcards Challenge](../../../../web-flashcards-challenge)
 1. [Stack Overflow Clone](../../../sinatra-overflow-challenge)
 
-Focus first and foremost on doing things the "Rails way."  Rails' idiomatic
-style can be frustrating coming from simpler, more explicit frameworks like
-Sinatra, but the sooner you [grok](http://en.wikipedia.org/wiki/Grok) how Rails
-sees the world the more productive you'll be.
+Focus on doing things the "Rails way." The "convention over configuration" can be frustrating coming from more explicit frameworks like Sinatra.
 
-Migrating flashcards should be farily straight forward but offers opportunities
-to explore nesting. Stack Overflow is a more complex domain, but will push your
-skills.
+The sooner you understand and learn how Rails sees the world, the more productive you'll be.
+
+Migrating flashcards should be farily straight forward but offers opportunities to explore nesting (resources and routing). Stack Overflow is a more complex domain, but gives you the opportunity to see how efficient and productive using Rails can be.
 
 ## Objectives
 
-Part of grasping "The Rails Way" is to make use of its copious number of view
-helpers especially its [form helpers][] and it [url-helpers][]. These tools
-allow you to write but a single line of code and have Rails generate forms that
-are REST-compatible, resource-oriented, and guarded from certain types of web
-traffic hacks ([CSRF attacks][csrf])
+Part of grasping "The Rails Way" is to make use of [form helpers][] and [url-helpers][].
+
+These tools allow you to write much less code (sometimes a single line) and have Rails generate forms that are REST-compatible, resource-oriented, and guarded from certain types of web traffic hacks (e.g. [CSRF attacks][csrf])
 
 ## Releases
 
