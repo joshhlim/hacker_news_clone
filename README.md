@@ -18,9 +18,11 @@ skills.
 
 ## Objectives
 
-If you need a specific area to focus on, [Rails form helpers][helpers] are a
-great place to start.  Form helpers are the collection of view helpers that
-Rails uses to generate, manipulate, and submit forms.
+Part of grasping "The Rails Way" is to make use of its copious number of view
+helpers especially its [form helpers][] and it [url-helpers][]. These tools
+allow you to write but a single line of code and have Rails generate forms that
+are REST-compatible, resource-oriented, and guarded from certain types of web
+traffic hacks ([CSRF attacks][csrf])
 
 ## Releases
 
@@ -35,3 +37,6 @@ Make sure you understand every line of code you're writing. Don't copy and paste
 [Sinatra to Rails](https://gist.github.com/keithtom/2956bfa3c603e21e6b6c)
 
 [helpers]: http://guides.rubyonrails.org/form_helpers.html
+[csrf]: https://en.wikipedia.org/wiki/Cross-site_request_forgery
+[form helpers]: http://guides.rubyonrails.org/form_helpers.html
+[url-helpers]: http://guides.rubyonrails.org/routing.html#generating-paths-and-urls-from-code
