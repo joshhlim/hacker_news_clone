@@ -1,0 +1,9 @@
+<h1>Questions</h1>
+<ul>
+<% @questions.each do |question| %>
+  <li>
+    <a href="/questions/<%= question.id %>"><strong><%= question.title %></strong></a>
+    <p><%= question.body %></p>
+  </li>
+<% end %>
+<a href="/questions/new">Ask a question.</a>

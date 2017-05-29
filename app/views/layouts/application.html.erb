@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+<header>
+  <nav>
+  <ul>
+    <li><%= link_to 'Home', questions_path %></li>
+    <li><%= link_to 'Register', new_user_path %></li>
+    <li><%= link_to 'Login', '/users/login' %></li>
+  </ul>
+  <%= yield %>
+  </nav>
+</header>
 
 </body>
 </html>
