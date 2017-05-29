@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :questions
-  resources :users
-  resources :answers
+  resources :questions do
+    resources :answers
+  end
+  # resources :users
+
+resources :users, except: [:create, :destroy] do
+  collection do
+    get 'login'
+    get 'logout'
+  end
+end
 
   root 'questions#index'
 

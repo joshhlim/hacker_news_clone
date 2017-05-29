@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    find_user
   end
 
   def new
@@ -25,16 +25,17 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find(params[:id])
-    if @user.authenticate?
-      session['user_id'] = @user.id
-    else
-
-    end
+    @user = User.new
   end
 
-  # def update
-  # end
+  def update
+     find_user
+    if @user.authenticate?(user_params)
+      session['user_id'] = @user.id
+    else
+      render 'login'
+    end
+  end
 
   def destroy
     reset_session

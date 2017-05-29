@@ -1,13 +1,6 @@
-<h2>The form!</h2>
-<%= form_for @answer do |form| %>
+<h2>Answer this question</h2>
+<%= form_for([@question, @question.answers.build]) do |form| %>
 
-<% if @answer.errors.any? %>
-  <ul>
-    <% @answer.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
 
 <p>
   <%= form.label :body %></br>
@@ -16,7 +9,6 @@
 
 <%= form.hidden_field :answerer_id, value: @user.id %>
 <%= form.hidden_field :question_id, value: @question.id %>
-
 
 <%= form.submit %>
 

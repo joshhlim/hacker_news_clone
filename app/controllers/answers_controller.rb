@@ -12,6 +12,9 @@ class AnswersController < ApplicationController
   # end
 
   def create
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.create(answer_params)
+    redirect_to question_path(@question)
   end
 
   def login
@@ -25,6 +28,6 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:body,:question_id,:answerer_id)
+    params.require(:answer).permit(:body,:answerer)
   end
 end
