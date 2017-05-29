@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :find_user
+
+  include UserHelper
 
   def index
     @questions = Question.all
@@ -46,4 +49,13 @@ class QuestionsController < ApplicationController
   def questions_params
     params.require(:question).permit(:title,:body)
   end
+
+  def find_user
+    if logged_in?
+      @user = current_user
+    else
+      @user = User.new
+    end
+  end
+
 end

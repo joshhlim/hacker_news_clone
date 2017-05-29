@@ -1,0 +1,28 @@
+<%= form_for @user do |form| %>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>
+  <%= form.label :username %></br>
+  <%= form.text_field :username %>
+</p>
+
+<p>
+  <%= form.label :email %></br>
+  <%= form.text_field :email %>
+</p>
+
+<p>
+  <%= form.label :password_hash, value: 'Password' %></br>
+  <%= form.text_field :password_hash %>
+</p>
+
+<%= form.submit %>
+
+<% end %>
