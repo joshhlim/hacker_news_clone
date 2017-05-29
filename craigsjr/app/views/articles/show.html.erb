@@ -1,0 +1,8 @@
+<h1><%= @article.title.capitalize %></h1>
+<ul>
+  <li> Info: <%= @article.body %></li>
+  <li> Contact: <%= @article.email %></li>
+  <li> Price: $<%= @article.price %></li>
+</ul>
+<p> <%=  link_to 'Edit', edit_category_article_path(@article.category, @article) %></p>
+<p> <%=  link_to 'Delete', [@article.category, @article], method: :delete %></p>

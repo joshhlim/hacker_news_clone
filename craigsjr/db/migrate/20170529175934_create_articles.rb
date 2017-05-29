@@ -6,7 +6,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :body
       t.string :email
       t.string :key
-      t.references :category, index: true, foreign_key: true
+      t.integer :category_id
 
       t.timestamps null: false
     end

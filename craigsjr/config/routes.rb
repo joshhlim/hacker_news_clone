@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+  get '/', to: 'categories#index'
+  ## maybe unnecessary#####
   get '/categories', to: 'categories#index'
+  ##########
   get '/categories/:id', to: 'categories#show', as: 'category'
 
+  resources :categories do
+    resources :articles
+  end
+
+  root :to => "categories#index"
 
 end
 
