@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(session[:user_id])
-    @posts = @user.posts
+    @posts = current_user.posts
   end
 
   def show
@@ -12,20 +11,25 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @user = User.find(session[:user_id])
     @post = Post.find(params[:id])
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @user.posts.create(post_params)
+    current_user.posts.create(post_params)
 
-    redirect_to user_posts(@user)
+    redirect_to user_posts_path(current_user)
   end
 
   def update
     @post = current_user.posts.find(params[:id])
     @post.update(post_params)
+
+    redirect_to user_posts_path(current_user)
+  end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy
 
     redirect_to user_posts_path(current_user)
   end

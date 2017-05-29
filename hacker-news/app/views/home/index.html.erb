@@ -1,5 +1,5 @@
 <h1>Hacker News</h1>
-<%= link_to 'New post', new_user_post_path(@user) %>
+<%= link_to 'New post', new_user_post_path(current_user) %>
 
 <ul>
   <% @posts.each do |post| %>

@@ -1,6 +1,6 @@
 <h1>Edit Post</h1>
 
-<%= form_for [@user, @post] do |f| %>
+<%= form_for [current_user, @post] do |f| %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
