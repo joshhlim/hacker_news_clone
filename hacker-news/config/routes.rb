@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
+
   resources :users do
     resources :posts
   end
 
-  root 'posts#index'
+  root 'home#index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

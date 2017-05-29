@@ -1,10 +1,16 @@
-<h1>Hacker News</h1>
-<%= link_to 'New post', new_user_post_path(@user) %>
+<h1><%= @user.username %></h1>
 
+<h2>Posts</h2>
 <ul>
   <% @posts.each do |post| %>
-    <li>
-      <a href='<%= post.url %>'><%= post.title %></a>
+    <li><%= post.title %>
+      <span><%= link_to 'Show', user_post_path(@user, post) %></span>
+      <span><%= link_to 'Edit', edit_user_post_path(@user, post) %></span>
+      <span><%= link_to 'Delete', user_post_path(@user, post) %></span>
     </li>
+    <ul>
+      <li><%= post.url %></li>
+      <li><%= post.body %></li>
+    </ul>
   <% end %>
 </ul>

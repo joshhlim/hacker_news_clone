@@ -1,0 +1,11 @@
+<h1>Hacker News</h1>
+<%= link_to 'New post', new_user_post_path(@user) %>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.title %> <%= link_to '(Link)', post.url %><br>
+      <span>by <%= post.user.username %></span>
+    </li>
+  <% end %>
+</ul>
