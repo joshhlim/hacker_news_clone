@@ -19,4 +19,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  helper_method :logged_in?, :current_user, :find_user
+
 end

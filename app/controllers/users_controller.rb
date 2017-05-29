@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    redirect_to questions_path
   end
 
   def show
@@ -10,9 +11,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
-  # def edit
-  # end
 
   def create
     @user = User.new(user_params)
@@ -28,10 +26,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def update
-     find_user
-    if @user.authenticate?(user_params)
-      session['user_id'] = @user.id
+  def authenticate
+    user = User.find_by(email: params[:user][:email])
+    if params[:user][:password_hash] == user.password_hash
+      session['user_id'] = user.id
+      redirect_to questions_path
     else
       render 'login'
     end
@@ -45,6 +44,10 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username,:email,:password_hash)
+  end
+
+  def login_params
+    params.require(:user).permit(:email, :password_hash)
   end
 
 end

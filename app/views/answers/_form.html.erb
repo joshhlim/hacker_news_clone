@@ -1,7 +1,6 @@
 <h2>Answer this question</h2>
 <%= form_for([@question, @question.answers.build]) do |form| %>
 
-
 <p>
   <%= form.label :body %></br>
   <%= form.text_area :body %>

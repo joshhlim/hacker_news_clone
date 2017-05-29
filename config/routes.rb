@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
-  # resources :users
 
-resources :users, except: [:create, :destroy] do
-  collection do
-    get 'login'
-    get 'logout'
+  resources :users do
+    collection do
+      get 'login'
+      get 'logout'
+      post 'login', to: :authenticate, controller: 'users'
+    end
   end
-end
 
   root 'questions#index'
 
