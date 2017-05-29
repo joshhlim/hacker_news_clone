@@ -16,7 +16,7 @@ end
 
 15.times do
   title = Faker::Lorem.sentence
-  body = Faker::Lorem.paragraphs
+  body = Faker::Lorem.paragraphs.join('\n\n')
   questioner = User.all.sample
   Question.create(title: title, body: body, questioner_id: questioner.id)
 end

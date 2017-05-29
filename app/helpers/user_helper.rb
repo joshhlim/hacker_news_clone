@@ -8,4 +8,12 @@ module UserHelper
     User.find(session['user_id'])
   end
 
+  def find_user
+    if logged_in?
+      @user = current_user
+    else
+      @user = User.new
+    end
+  end
+
 end

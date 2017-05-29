@@ -36,8 +36,10 @@ class UsersController < ApplicationController
   # def update
   # end
 
-  # def destroy
-  # end
+  def destroy
+    reset_session
+    redirect_to questions_path
+  end
 
   private
   def user_params

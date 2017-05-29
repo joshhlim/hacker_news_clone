@@ -50,12 +50,6 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:title,:body)
   end
 
-  def find_user
-    if logged_in?
-      @user = current_user
-    else
-      @user = User.new
-    end
-  end
+
 
 end
