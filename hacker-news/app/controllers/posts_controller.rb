@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authorize, except: [:index, :show]
+
   def index
     @posts = current_user.posts
   end
