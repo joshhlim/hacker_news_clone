@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def edit
@@ -15,9 +16,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    current_user.posts.create(post_params)
-
-    redirect_to user_posts_path(current_user)
+    @post = current_user.posts.new(post_params)
+    if @post.save
+      redirect_to user_posts_path(current_user)
+    else
+      render 'new'
+    end
   end
 
   def update
