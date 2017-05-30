@@ -1,14 +1,13 @@
-<h1>Hacker News</h1>
-<%= link_to 'New post', new_post_path %>
-
-<ol>
-  <% @posts.each do |post| %>
-    <li>
-      <%= link_to(post) do %>
-        <%= post.title %>
-      <% end %>
-      &nbsp;<%= link_to '(Link)', post.url %><br>
-      <span>by <%= post.user.username %></span>
-    </li>
-  <% end %>
-</ol>
+<div class="posts-container">
+  <ol>
+    <% @posts.each do |post| %>
+      <li>&#9650;
+        <%= link_to(post) do %>
+          <%= post.title %>
+        <% end %>
+        &nbsp;<%= link_to '(Link)', post.url %><br>
+        <span>by <%= post.user.username %></span>
+      </li>
+    <% end %>
+  </ol>
+</div>
