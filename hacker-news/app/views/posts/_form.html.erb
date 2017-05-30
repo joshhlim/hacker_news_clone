@@ -1,6 +1,4 @@
-<h1>Edit Post</h1>
-
-<%= form_for [current_user, @post] do |f| %>
+<%= form_for (@post) do |f| %>
 
  <% if @post.errors.any? %>
     <div id="error_explanation">

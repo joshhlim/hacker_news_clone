@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authorize
+
   def show
   end
 
@@ -13,6 +15,10 @@ class UsersController < ApplicationController
     else
       redirect_to '/signup'
     end
+  end
+
+  def posts
+    @posts = current_user.posts
   end
 
   private

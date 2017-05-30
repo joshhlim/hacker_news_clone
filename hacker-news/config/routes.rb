@@ -2,10 +2,18 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :users do
-    resources :posts
+  # resources :users do
+  #   resources :posts
+  # end
+
+  resources :posts, except: :index do
+    resources :comments
   end
 
+  resources :users do
+    get 'posts', :on => :member
+    get 'comments', :on => :member
+  end
 
   root 'home#index'
 

@@ -1,0 +1,16 @@
+<h1><%= current_user.username %></h1>
+
+<h2>Posts</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post.title %>
+      <span><%= link_to 'Show', post_path(post) %></span>
+      <span><%= link_to 'Edit', edit_post_path(post) %></span>
+      <span><%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+    </li>
+    <ul>
+      <li><%= post.url %></li>
+      <li><%= post.body %></li>
+    </ul>
+  <% end %>
+</ul>

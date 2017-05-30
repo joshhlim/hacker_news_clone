@@ -1,10 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authorize, except: [:index, :show]
 
-  def index
-    @posts = current_user.posts
-  end
-
   def show
     @post = Post.find(params[:id])
   end
@@ -20,7 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to user_posts_path(current_user)
+      redirect_to posts_user_path(current_user)
     else
       render 'new'
     end
@@ -29,17 +25,17 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to user_posts_path(current_user)
+      redirect_to posts_user_path(current_user)
     else
       render 'edit'
     end
   end
 
   def destroy
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to user_posts_path(current_user)
+    redirect_to posts_user_path(current_user)
   end
 
   private
