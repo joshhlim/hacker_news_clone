@@ -1,5 +1,6 @@
+<%= link_to 'New Posting', new_category_article_path(@category)  %>
+<%= link_to 'Back', categories_path %>
 <ul class="articles-list">
-  <%= link_to 'New Posting', new_category_article_path(@category)  %>
   <% @articles.each do |article| %>
     <li class="articles-list-item"><%= link_to "#{article.title}", category_article_url(@category, article) %></li> 
   <% end %>  
