@@ -1,0 +1,7 @@
+<h2>List of Categories</h2>
+
+<ul class="categories-list">
+  <% @categories.each do |category| %>
+    <li class="category-list-item"> <%= link_to "#{category.name}", category_path(category) %></li>
+  <% end %>  
+</ul>

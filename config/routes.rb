@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'articles#index'
+  root 'categories#index'
 
-  resources :articles
+  resources :categories do
+    resources :articles
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
