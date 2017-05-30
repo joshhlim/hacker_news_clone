@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     @posts = current_user.posts
   end
 
+  def comments
+    @comments = current_user.comments
+  end
+
   private
     def user_params
       params.require(:user).permit(:username, :password)

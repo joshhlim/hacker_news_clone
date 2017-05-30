@@ -2,3 +2,6 @@
 
 <p>You have <%= current_user.posts.count %> posts!
 <span><%= link_to 'Posts', posts_user_path(current_user) %></span></p>
+
+<p>You have <%= current_user.comments.count %> comments!
+<span><%= link_to 'Comments', comments_user_path(current_user) %></span></p>

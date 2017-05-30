@@ -1,0 +1,9 @@
+<h1><%= current_user.username %></h1>
+
+<h2>Comments</h2>
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%= comment.post.title %></li>
+    <%= comment.body %>
+  <% end %>
+</ul>
