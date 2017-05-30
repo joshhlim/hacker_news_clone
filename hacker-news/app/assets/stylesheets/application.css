@@ -52,3 +52,8 @@ a:link {
 .user {
   float: right;
 }
+
+.info {
+  color: #828282;
+  font-size: 10px;
+}

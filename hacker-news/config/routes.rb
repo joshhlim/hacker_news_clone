@@ -2,11 +2,8 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  # resources :users do
-  #   resources :posts
-  # end
-
   resources :posts, except: :index do
+    post 'upvote', :on => :member
     resources :comments
   end
 

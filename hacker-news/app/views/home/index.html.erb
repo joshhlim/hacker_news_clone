@@ -1,12 +1,12 @@
 <div class="posts-container">
   <ol>
     <% @posts.each do |post| %>
-      <li>&#9650;
+      <li><span><%= link_to '&#9650;'.html_safe, upvote_post_path(post), method: :post %>
         <%= link_to(post) do %>
           <%= post.title %>
         <% end %>
-        &nbsp;<%= link_to '(Link)', post.url %><br>
-        <span>by <%= post.user.username %></span>
+        &nbsp;<%= link_to '(Link)', post.url %></span><br>
+        <span class="info">X points by <%= post.user.username %> <%= distance_of_time_in_words(post.updated_at, DateTime.now) %>| hide | <%= post.comments.count %> comments</span>
       </li>
     <% end %>
   </ol>
