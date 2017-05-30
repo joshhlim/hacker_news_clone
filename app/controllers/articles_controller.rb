@@ -34,6 +34,14 @@ class ArticlesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @category = Category.find(params[:category_id])
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to category_path(@category)
   end    
 
   private
