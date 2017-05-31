@@ -1,0 +1,33 @@
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+<p>
+  <strong>url:</strong>
+  <%= @post.url %>
+</p>
+<p>
+  <strong>Text:</strong>
+  <%= @post.text %>
+</p>
+
+<% if !@comments.empty? %>
+
+<h2><%= @comments.first.post.title %></h2>
+
+<ul>
+  <% @comments.each do |thing| %>
+
+  <li>
+  <%= link_to '&#9650;'.html_safe, upvote_user_post_comment_path(current_user, thing.post, thing), remote: true, method: :post %>
+    <%= thing.body %><br>
+    <%= pluralize(thing.votes.count, "point") %> Written by: <%= thing.user.name %> <%= thing.created_at.strftime("on %m/%d/%Y at %I:%M%p") %>
+
+  </li>
+
+  <% end %>
+</ul>
+
+<% end %>
+
+<%= link_to "Add Comment", new_user_post_comment_path(current_user, @post) %>

@@ -1,0 +1,12 @@
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%= link_to '&#9650;'.html_safe, upvote_user_post_comment_path(current_user, comment.post, comment), remote: true, method: :post %>
+    <%= comment.body %><br>
+    <%= pluralize(comment.votes.count, "point") %> Written by: <%= comment.user.name %> <%= comment.created_at.strftime("on %m/%d/%Y at %I:%M%p") %>
+    For: <%= comment.post.title %>
+
+
+    </li>
+
+  <% end %>
+</ul>

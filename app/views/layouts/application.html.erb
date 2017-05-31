@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HackerNews</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <span class="left">
+        &#9635;
+        <strong><%= link_to "Hacker News", "https://news.ycombinator.com/news" %></strong> <%= link_to "welcome", welcome_index_path %> | <%= link_to "new", welcome_new_path %> | <%= link_to "comments", "/welcome/comments" %> | <%= link_to "ask", "/welcome/ask" %> | <%= link_to "link", "/welcome/link" %> | <%= link_to "text", "/welcome/text" %> | <% if current_user %><%= link_to "submit", new_user_post_path(current_user) %><% end %>
+      </span>
+
+      <span class="right">
+        <% if current_user %>
+          Signed in as <%= link_to "#{current_user.name}", user_path(current_user) %> | <%= link_to "Logout", '/logout' %>
+        <% else %>
+          <%= link_to "Login", '/login' %> | <%= link_to 'Signup', '/users/new' %>
+        <% end %>
+      </span>
+    </nav>
+      <div class="main">
+        <%= yield %>
+      </div>
+  </body>
+</html>

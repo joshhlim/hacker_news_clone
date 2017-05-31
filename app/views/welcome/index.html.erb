@@ -1,0 +1,16 @@
+<ol class="news-list">
+  <% @posts.each do |post| %>
+    <li class="index"> <%= link_to '&#9650;'.html_safe, upvote_user_post_path(current_user, post), remote: true, method: :post %>
+
+      <% if post.url.include?('.com' || '.net' || '.org') %>
+        <%= link_to post.title, "http://#{post.url}" %> (<%= post.url %>)
+      <% else %>
+        <%= link_to post.title, user_post_path(post.user_id, post.id) %>
+      <% end %>
+
+    <p class="small"><%= pluralize(post.votes.count, "point") %> by <%= post.user.name %> <%= distance_of_time_in_words(post.updated_at, DateTime.now) %> ago <span class="hide">| hide |</span> <%= link_to "#{pluralize(post.comments.count, "comment")}", user_post_comments_path(post.user, post) %></p>
+
+    </li>
+  <% end %>
+</ol>
+
